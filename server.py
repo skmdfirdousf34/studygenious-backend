@@ -35,6 +35,7 @@ ai_service = AIService()
 
 # Create the main app
 app = FastAPI(title="StudyGenius Pro API")
+print("⭐⭐ CORS MIDDLEWARE LOADED ⭐⭐")
 
 # CORS FIX
 app.add_middleware(
