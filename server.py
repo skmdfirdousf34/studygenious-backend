@@ -36,8 +36,20 @@ ai_service = AIService()
 # Create the main app
 app = FastAPI(title="StudyGenius Pro API")
 
+# CORS FIX
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],        # Allow all origins (frontend)
+    allow_credentials=True,
+    allow_methods=["*"],        # Allow all methods: GET, POST, etc.
+    allow_headers=["*"],        # Allow all headers
+)
+
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
+
+app.include_router(api_router)
+
 
 # Configure logging
 logging.basicConfig(
